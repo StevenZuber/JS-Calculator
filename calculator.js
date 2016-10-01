@@ -196,12 +196,13 @@ btnMod.addEventListener('click', function(e){
 });
 
 btnDiv.addEventListener('click', function(e){
-    console.log('Div');
+    console.log('/');
 });
 
 btn7.addEventListener('click', function(e){
   solutionData.textContent += '7';
     console.log('7');
+
 });
 
 btn8.addEventListener('click', function(e){
@@ -226,6 +227,7 @@ btn4.addEventListener('click', function(e){
 btn5.addEventListener('click', function(e){
   solutionData.textContent += '5';
     console.log('5');
+
 });
 
 btn6.addEventListener('click', function(e){
@@ -274,3 +276,25 @@ btnDecimal.addEventListener('click', function(e){
 btnEquals.addEventListener('click', function(e){
     console.log('=');
 });
+
+var numArray = [];
+
+var add = function(){
+  numArray += solutionData.textContent.push();
+}
+
+var sub = function(){
+
+}
+
+var mult = function(){
+
+}
+
+var div = function(){
+
+}
+
+var mod = function(){
+
+}
