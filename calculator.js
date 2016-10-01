@@ -182,8 +182,12 @@ calculator.appendChild(calcBody);
 document.body.appendChild(calculator);
 
 
+var currentNum = '';
+
+
 btnC.addEventListener('click', function(e){
   solutionData.textContent = null;
+  currentNum = null;
     console.log('C');
 });
 
@@ -196,91 +200,117 @@ btnMod.addEventListener('click', function(e){
 });
 
 btnDiv.addEventListener('click', function(e){
+  currentNum += '/';
     console.log('/');
 });
 
 btn7.addEventListener('click', function(e){
   solutionData.textContent += '7';
+  inputArr.push(7);
+  currentNum += '7';
     console.log('7');
 
 });
 
 btn8.addEventListener('click', function(e){
   solutionData.textContent += '8';
+  inputArr.push(8);
+  currentNum += '8';
     console.log('8');
 });
 
 btn9.addEventListener('click', function(e){
+  inputArr.push(9);
   solutionData.textContent += '9';
+  currentNum += '9';
     console.log('9');
 });
 
 btnMult.addEventListener('click', function(e){
     console.log('x');
+    currentNum += '*';
 });
 
 btn4.addEventListener('click', function(e){
   solutionData.textContent += '4';
+  currentNum += '4';
     console.log('4');
 });
 
 btn5.addEventListener('click', function(e){
   solutionData.textContent += '5';
+  currentNum += '5';
     console.log('5');
 
 });
 
 btn6.addEventListener('click', function(e){
   solutionData.textContent += '6';
+  currentNum += '6';
     console.log('6');
 });
 
 btnSub.addEventListener('click', function(e){
+  currentNum += '-';
     console.log('-');
 });
 
 btn1.addEventListener('click', function(e){
   solutionData.textContent += '1';
+  currentNum += '1';
     console.log('1');
 });
 
 btn2.addEventListener('click', function(e){
   solutionData.textContent += '2';
+  currentNum += '2';
     console.log('2');
 });
 
 btn3.addEventListener('click', function(e){
   solutionData.textContent += '3';
+  currentNum += '3';
     console.log('3');
 });
 
 btnAdd.addEventListener('click', function(e){
+  solutionData.textContent = '';
+  numArr.push(parseFloat(currentNum));
+currentNum += '+';
     console.log('+');
 });
 
 btn0.addEventListener('click', function(e){
   solutionData.textContent += '0';
+  currentNum += '0';
     console.log('0');
 });
 
 btnDecimal.addEventListener('click', function(e){
   if (!solutionData.textContent.includes(".")) {
+    currentNum += '.';
   solutionData.textContent += '.';
   }
   else{
-    solutionData.textContent += "";
+    solutionData.textContent += '';
   }
     console.log('.');
 });
 
 btnEquals.addEventListener('click', function(e){
+  var result = eval(currentNum);
+  solutionData.textContent = result;
     console.log('=');
 });
 
-var numArray = [];
+var numArr = [];
+
+var inputArr = [];
+
+var operandArr = [];
 
 var add = function(){
-  numArray += solutionData.textContent.push();
+
 }
 
 var sub = function(){
