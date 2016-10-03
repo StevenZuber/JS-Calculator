@@ -181,214 +181,203 @@ calculator.appendChild(fifthRow);
 calculator.appendChild(calcBody);
 document.body.appendChild(calculator);
 
-
-var currentNum = '';
-
-var numArr = [];
-
-var inputArr = [];
-var preTotal = '';
-var total = '';
-var doMath = 0;
-var operandArr = [];
 var operand = '';
+
+var currentNum = 0;
+
+var notFirst = false;
 
 
 btnC.addEventListener('click', function(e){
-  solutionData.textContent = null;
-  currentNum = '';
-  numArr = [];
-  operand = '';
+operand = '';
+currentNum = 0;
+solutionData.textContent = '';
+notFirst = false;
     console.log('C');
 });
 
 btnPlusMinus.addEventListener('click', function(e){
-  solutionData.textContent = solutionData.textContent * -1;
+  solution.textContent = (solution.textContent * -1);
     console.log('+/-');
 });
 
 btnMod.addEventListener('click', function(e){
-  inputArr.push('%');
+  currentNum = calculate(solutionData.textContent, currentNum, operand);
   operand = '%';
-  domath = calculate(solutionData.textContent, doMath, operand);
-
-  operandArr.push('%');
-  inputArr.push('%')
+  notFirst = false;
     console.log('Mod');
 });
 
 btnDiv.addEventListener('click', function(e){
-  inputArr.push('/');
-
+  currentNum = calculate(solutionData.textContent, currentNum, operand);
   operand = '/';
-  doMath = calculate(solutionData.textContent, doMath, operand);
-
-    operandArr.push('/');
+  notFirst = false;
     console.log('/');
 });
 
 btn7.addEventListener('click', function(e){
-  inputArr.push('7');
-
-  currentNum += '7';
-  solutionData.textContent = currentNum;
+  if (!notFirst) {
+    solutionData.textContent = '';
+  }
+  solutionData.textContent += '7';
+  notFirst = true;
     console.log('7');
-
 });
 
 btn8.addEventListener('click', function(e){
-  inputArr.push('8');
-
-  currentNum += '8';
-  solutionData.textContent = currentNum;
+  if (!notFirst) {
+    solutionData.textContent = '';
+  }
+  solutionData.textContent += '8';
+  notFirst = true;
     console.log('8');
 });
 
 btn9.addEventListener('click', function(e){
-  inputArr.push('9');
-
-  currentNum += '9';
-  solutionData.textContent = currentNum;
+  if (!notFirst) {
+    solutionData.textContent = '';
+  }
+  solutionData.textContent += '9';
+  notFirst = true;
     console.log('9');
 });
 
 btnMult.addEventListener('click', function(e){
-  inputArr.push('*');
-  operandArr.push('*');
+  currentNum = calculate(solutionData.textContent, currentNum, operand);
   operand = '*';
-  doMath = calculate(solutionData.textContent, doMath, operand);
-
-  calculate('*');
+  notFirst = false;
     console.log('x');
 });
 
 btn4.addEventListener('click', function(e){
-  inputArr.push('4');
-
-  currentNum += '4';
-  solutionData.textContent = currentNum;
+  if (!notFirst) {
+    solutionData.textContent = '';
+  }
+  solutionData.textContent += '4';
+  notFirst = true;
     console.log('4');
 });
 
 btn5.addEventListener('click', function(e){
-  inputArr.push('5');
-
-  currentNum += '5';
-  solutionData.textContent = currentNum;
+  if (!notFirst) {
+    solutionData.textContent = '';
+  }
+  solutionData.textContent += '5';
+  notFirst = true;
     console.log('5');
 
 });
 
 btn6.addEventListener('click', function(e){
-  inputArr.push('6');
-
-  currentNum += '6';
-  solutionData.textContent = currentNum;
+  if (!notFirst) {
+    solutionData.textContent = '';
+  }
+  solutionData.textContent += '6';
+  notFirst = true;
     console.log('6');
 });
 
 btnSub.addEventListener('click', function(e){
-  inputArr.push('-');
+  currentNum = calculate(solutionData.textContent, currentNum, operand);
   operand = '-';
-  doMath = calculate(solutionData.textContent, doMath, operand);
-
-
-  operandArr.push('-');
+  notFirst = false;
     console.log('-');
 });
 
 btn1.addEventListener('click', function(e){
-  inputArr.push('1');
-
-  currentNum += '1';
-  solutionData.textContent = currentNum;
+  if (!notFirst) {
+    solutionData.textContent = '';
+  }
+  solutionData.textContent += '1';
+  notFirst = true;
     console.log('1');
 });
 
 btn2.addEventListener('click', function(e){
-  inputArr.push('2');
-
-  currentNum += '2';
-  solutionData.textContent = currentNum;
+  if (!notFirst) {
+    solutionData.textContent = '';
+  }
+  solutionData.textContent += '2';
+  notFirst = true;
     console.log('2');
 });
 
 btn3.addEventListener('click', function(e){
-  inputArr.push('3');
-
-  currentNum += '3';
-  solutionData.textContent = currentNum;
+  if (!notFirst) {
+    solutionData.textContent = '';
+  }
+  solutionData.textContent += '3';
+  notFirst = true;
     console.log('3');
 });
 
 btnAdd.addEventListener('click', function(e){
-  inputArr.push('+');
-  operand = '+';
-  doMath = calculate(solutionData.textContent, doMath, operand);
-
-  operandArr.push('+');
+currentNum = calculate(solutionData.textContent, currentNum, operand);
+operand = '+';
+notFirst = false;
     console.log('+');
 });
 
 btn0.addEventListener('click', function(e){
-  inputArr.push('0');
-
-  currentNum += '0';
-  solutionData.textContent = currentNum;
+  if (!notFirst) {
+    solutionData.textContent = '';
+  }
+  solutionData.textContent += '0';
+  notFirst = true;
     console.log('0');
 });
 
 btnDecimal.addEventListener('click', function(e){
-  if (!solutionData.textContent.includes('.')) {
-    inputs.push('.');
+  if (!notFirst) {
+    solutionData.textContent = '';
+  }
 
-    currentNum += '.';
-  solutionData.textContent += '.';
-  }
   if(solutionData.textContent === ''){
-   solutionData.textContent += '0.';
- }
-  else{
-    solutionData.textContent = currentNum;
+    solutionData.textContent += '0.';
   }
+  else if (solutionData.textContent.indexOf(".") >= 0){
+    solutionData.textContent = solutionData.textContent;
+  }
+  else {
+    result.textContent += '.';
+  }
+  notFirst = true;
     console.log('.');
 });
 
 btnEquals.addEventListener('click', function(e){
-var preTotal = inputArr.join('');
-var total = eval(total);
-  solutionData.textContent = total;
-
-return total;
-  numArr.push(solutionData.textContent);
+  currentNum = calculate(solutionData.textContent, currentNum, operand);
+  operand = '=';
+  notFirst = false;
     console.log('=');
 });
 
 
-var calculate = function (currentNum, preTotal, operand) {
+var calculate = function (prevCurrent, currentNum, operand) {
   switch (operand) {
     case '+':
-    solutionData.textContent = (parseFloat(solutionData.textContent) + parseFloat(preTotal));
+    solutionData.textContent = (parseFloat(solutionData.textContent) + parseFloat(currentNum));
     break;
 
     case '-':
-    solutionData.textContent = (parseFloat(solutionData.textContent) - parseFloat(preTotal));
+    solutionData.textContent = (parseFloat(solutionData.textContent) - parseFloat(currentNum));
     break;
 
     case '*':
-    solutionData.textContent = (parseFloat(solutionData.textContent) * parseFloat(preTotal));
+    solutionData.textContent = (parseFloat(solutionData.textContent) * parseFloat(currentNum));
     break;
 
     case '/':
-    solutionData.textContent = (parseFloat(solutionData.textContent) / parseFloat(preTotal));
+    solutionData.textContent = (parseFloat(solutionData.textContent) / parseFloat(currentNum));
       break;
 
     case '%':
-    solutionData.textContent = (parseFloat(solutionData.textContent) % parseFloat(preTotal));
+    solutionData.textContent = (parseFloat(solutionData.textContent) % parseFloat(currentNum));
       break;
-
+    case '=':
+    break;
     default:
     break;
-
-  }
+  };
+  return solutionData.textContent;
 }
