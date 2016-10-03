@@ -186,8 +186,6 @@ var currentNum = '';
 
 var numArr = [];
 
-// placeholder easy way of sort-of doing the assignment.
-// plan to delete it.
 var inputArr = [];
 var preTotal = '';
 var total = '';
@@ -248,9 +246,8 @@ btn9.addEventListener('click', function(e){
 
 btnMult.addEventListener('click', function(e){
   inputArr.push('*');
-
-
   operandArr.push('*');
+  calculate('*');
     console.log('x');
 });
 
@@ -350,24 +347,6 @@ return total;
 });
 
 
-
-var add = function(){
-
-
-}
-
-var sub = function(){
-
-}
-
-var mult = function(){
-
-}
-
-var div = function(){
-
-}
-
-var mod = function(){
+var calculate = function (operands) {
 
 }
