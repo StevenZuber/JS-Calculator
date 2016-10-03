@@ -189,23 +189,28 @@ var numArr = [];
 var inputArr = [];
 var preTotal = '';
 var total = '';
-
+var doMath = 0;
 var operandArr = [];
+var operand = '';
 
 
 btnC.addEventListener('click', function(e){
   solutionData.textContent = null;
   currentNum = '';
   numArr = [];
+  operand = '';
     console.log('C');
 });
 
 btnPlusMinus.addEventListener('click', function(e){
+  solutionData.textContent = solutionData.textContent * -1;
     console.log('+/-');
 });
 
 btnMod.addEventListener('click', function(e){
   inputArr.push('%');
+  operand = '%';
+  domath = calculate(solutionData.textContent, doMath, operand);
 
   operandArr.push('%');
   inputArr.push('%')
@@ -214,6 +219,9 @@ btnMod.addEventListener('click', function(e){
 
 btnDiv.addEventListener('click', function(e){
   inputArr.push('/');
+
+  operand = '/';
+  doMath = calculate(solutionData.textContent, doMath, operand);
 
     operandArr.push('/');
     console.log('/');
@@ -247,6 +255,9 @@ btn9.addEventListener('click', function(e){
 btnMult.addEventListener('click', function(e){
   inputArr.push('*');
   operandArr.push('*');
+  operand = '*';
+  doMath = calculate(solutionData.textContent, doMath, operand);
+
   calculate('*');
     console.log('x');
 });
@@ -278,6 +289,8 @@ btn6.addEventListener('click', function(e){
 
 btnSub.addEventListener('click', function(e){
   inputArr.push('-');
+  operand = '-';
+  doMath = calculate(solutionData.textContent, doMath, operand);
 
 
   operandArr.push('-');
@@ -310,6 +323,8 @@ btn3.addEventListener('click', function(e){
 
 btnAdd.addEventListener('click', function(e){
   inputArr.push('+');
+  operand = '+';
+  doMath = calculate(solutionData.textContent, doMath, operand);
 
   operandArr.push('+');
     console.log('+');
@@ -330,6 +345,9 @@ btnDecimal.addEventListener('click', function(e){
     currentNum += '.';
   solutionData.textContent += '.';
   }
+  if(solutionData.textContent === ''){
+   solutionData.textContent += '0.';
+ }
   else{
     solutionData.textContent = currentNum;
   }
@@ -347,6 +365,30 @@ return total;
 });
 
 
-var calculate = function (operands) {
+var calculate = function (currentNum, preTotal, operand) {
+  switch (operand) {
+    case '+':
+    solutionData.textContent = (parseFloat(solutionData.textContent) + parseFloat(preTotal));
+    break;
 
+    case '-':
+    solutionData.textContent = (parseFloat(solutionData.textContent) - parseFloat(preTotal));
+    break;
+
+    case '*':
+    solutionData.textContent = (parseFloat(solutionData.textContent) * parseFloat(preTotal));
+    break;
+
+    case '/':
+    solutionData.textContent = (parseFloat(solutionData.textContent) / parseFloat(preTotal));
+      break;
+
+    case '%':
+    solutionData.textContent = (parseFloat(solutionData.textContent) % parseFloat(preTotal));
+      break;
+
+    default:
+    break;
+
+  }
 }
