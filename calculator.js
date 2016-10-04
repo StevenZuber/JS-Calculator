@@ -197,7 +197,7 @@ notFirst = false;
 });
 
 btnPlusMinus.addEventListener('click', function(e){
-  solution.textContent = (solution.textContent * -1);
+  solutionData.textContent = (solutionData.textContent * -1);
     console.log('+/-');
 });
 
@@ -339,7 +339,7 @@ btnDecimal.addEventListener('click', function(e){
     solutionData.textContent = solutionData.textContent;
   }
   else {
-    result.textContent += '.';
+    solutionData.textContent += '.';
   }
   notFirst = true;
     console.log('.');
@@ -356,27 +356,26 @@ btnEquals.addEventListener('click', function(e){
 var calculate = function (prevCurrent, currentNum, operand) {
   switch (operand) {
     case '+':
-    solutionData.textContent = (parseFloat(solutionData.textContent) + parseFloat(currentNum));
+    solutionData.textContent = (parseFloat(solutionData.textContent) + (parseFloat(currentNum)));
     break;
 
     case '-':
-    solutionData.textContent = (parseFloat(solutionData.textContent) - parseFloat(currentNum));
+    solutionData.textContent = (parseFloat(solutionData.textContent) - (parseFloat(currentNum)));
     break;
 
     case '*':
-    solutionData.textContent = (parseFloat(solutionData.textContent) * parseFloat(currentNum));
+    solutionData.textContent = (parseFloat(solutionData.textContent) * (parseFloat(currentNum)));
     break;
 
     case '/':
-    solutionData.textContent = (parseFloat(solutionData.textContent) / parseFloat(currentNum));
+    solutionData.textContent = (parseFloat(solutionData.textContent) / (parseFloat(currentNum)));
       break;
 
     case '%':
-    solutionData.textContent = (parseFloat(solutionData.textContent) % parseFloat(currentNum));
+    solutionData.textContent = (parseFloat(solutionData.textContent) % (parseFloat(currentNum)));
       break;
+
     case '=':
-    break;
-    default:
     break;
   };
   return solutionData.textContent;
